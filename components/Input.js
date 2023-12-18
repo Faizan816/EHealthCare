@@ -5,7 +5,7 @@ export default function Input({ label, hidden, value, onChange, placeholder }) {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <View style={{ padding: 10 }}>
-      <Text style={{ fontSize: 16, fontWeight: "600", color: "gray" }}>
+      <Text style={{ fontSize: 16, fontWeight: "600", color: "black" }}>
         {label}
       </Text>
       <View style={{ height: 30, marginTop: 5 }}>

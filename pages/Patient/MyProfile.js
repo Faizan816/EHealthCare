@@ -15,7 +15,7 @@ import { TextInput } from "react-native-paper";
 function Gender({ gender, setGender }) {
   return (
     <View style={{ padding: 10 }}>
-      <Text>Gender</Text>
+      <Text style={{ fontWeight: "600" }}>Gender</Text>
       <View style={{ flexDirection: "row", marginTop: 5 }}>
         <TouchableOpacity
           style={[
@@ -187,7 +187,7 @@ function DateOfBirth({ date, setDate }) {
 
   return (
     <View style={{ padding: 10 }}>
-      <Text>Date of Birth</Text>
+      <Text style={{ fontWeight: "600" }}>Date of Birth</Text>
       <TouchableOpacity
         onPress={showDatepicker}
         style={{
@@ -231,15 +231,16 @@ export default function MyProfile({ navigation }) {
 
   useEffect(() => {
     navigation.setOptions({
-      headerTintColor: "gray",
+      headerTintColor: "slateblue",
       headerTitleAlign: "center",
+      headerStyle: { backgroundColor: "white" },
     });
   }, [navigation]);
 
   return (
     <SafeAreaView>
       <View style={{ padding: 10 }}>
-        <Text style={{ color: "gray" }}>
+        <Text style={{ color: "black" }}>
           Let us know you better by sharing your information and enjoy a
           tailored journey just for you.
         </Text>

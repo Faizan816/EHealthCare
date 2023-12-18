@@ -15,6 +15,8 @@ import BlankScreen from "../pages/BlanScreen";
 import MyProfile from "../pages/Patient/MyProfile";
 import Homepage from "../pages/Doctor/Homepage";
 import AppointmentPage from "../pages/Doctor/AppointmentsPage";
+import MyDoctors from "../pages/Patient/MyDoctors";
+import MyAppointments from "../pages/Patient/MyAppointments";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +45,7 @@ const MyStack = () => {
           options={{ headerShown: true }}
         />
         <Stack.Screen name="My Profile" component={MyProfile} />
+        <Stack.Screen name="My Appointments" component={MyAppointments} />
         <Stack.Screen
           name="Admin"
           component={AdminScreen}
@@ -53,6 +56,7 @@ const MyStack = () => {
           component={PatientScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="My Doctors" component={MyDoctors} />
         <Stack.Screen
           name="Doctor"
           component={DoctorScreen}

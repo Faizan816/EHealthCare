@@ -264,7 +264,7 @@ function Help() {
   );
 }
 
-function MyAppointments() {
+function MyAppointments({ onAppointmentsClick }) {
   return (
     <View style={styles.mainContainer}>
       <View
@@ -274,7 +274,10 @@ function MyAppointments() {
           borderRadius: 5,
         }}
       >
-        <TouchableOpacity style={{ flexDirection: "row" }}>
+        <TouchableOpacity
+          onPress={onAppointmentsClick}
+          style={{ flexDirection: "row" }}
+        >
           <View style={styles.padding5}>
             <Image
               source={require("../../icons/calendar.png")} // Specify the image source path
@@ -385,6 +388,12 @@ function HamburgerMenu({
                       AsyncStorage.removeItem("loggedIn");
                       navigation.navigate("Home");
                     }
+                    if (item.name === "My Doctors") {
+                      navigation.navigate("My Doctors");
+                    }
+                    if (item.name === "Your Appointments") {
+                      navigation.navigate("My Appointments");
+                    }
                   }}
                   style={{ flexDirection: "row", alignItems: "center" }}
                 >
@@ -476,7 +485,11 @@ export default function PatientDashboard({ navigation }) {
       >
         <Header toggleHamburger={toggleHamburger} />
         <Search />
-        <MyAppointments />
+        <MyAppointments
+          onAppointmentsClick={() => {
+            navigation.navigate("My Appointments");
+          }}
+        />
         <Help />
         <Symptoms />
         <Diseases />
