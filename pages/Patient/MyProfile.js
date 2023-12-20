@@ -156,18 +156,11 @@ function MaritalStatus({ maritalStatus, setMaritalStatus }) {
   );
 }
 
-<<<<<<< HEAD
 function SaveButton({ onPress }) {
   return (
     <View style={{ padding: 10, marginTop: 30 }}>
       <TouchableOpacity
         onPress={onPress}
-=======
-function SaveButton() {
-  return (
-    <View style={{ padding: 10, marginTop: 30 }}>
-      <TouchableOpacity
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
         style={{
           backgroundColor: "rgb(28, 115, 180)",
           padding: 10,
@@ -272,11 +265,7 @@ export default function MyProfile({ navigation }) {
           maritalStatus={maritalStatus}
           setMaritalStatus={setMaritalStatus}
         />
-<<<<<<< HEAD
         <SaveButton onPress={() => navigation.navigate("PatientDashboard")} />
-=======
-        <SaveButton />
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
       </View>
     </SafeAreaView>
   );

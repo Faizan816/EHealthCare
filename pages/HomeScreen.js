@@ -97,7 +97,6 @@ import { useEffect } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-<<<<<<< HEAD
 // function Button({ color, title, text, navigate }) {
 //   return (
 //     <View style={styles.buttonContainer}>
@@ -122,32 +121,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 //     </View>
 //   );
 // }
-=======
-function Button({ color, title, text, navigate }) {
-  return (
-    <View style={styles.buttonContainer}>
-      <Text
-        style={{
-          fontSize: 18,
-          fontWeight: "bold",
-          color: "black",
-          padding: 35,
-          paddingBottom: 5,
-          paddingTop: 10,
-        }}
-      >
-        {text}
-      </Text>
-      <TouchableOpacity
-        style={[styles.button, { backgroundColor: color }]}
-        onPress={navigate}
-      >
-        <Text style={styles.buttonText}>{title}</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
 
 function Logo({ title }) {
   return (
@@ -155,11 +128,7 @@ function Logo({ title }) {
       <MaterialCommunityIcons
         name="hospital-box-outline"
         size={45}
-<<<<<<< HEAD
         color="white"
-=======
-        color="black"
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
       />
       <Text style={styles.logo}>{title}</Text>
     </View>
@@ -174,18 +143,8 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Logo title="E-Healthcare" />
-<<<<<<< HEAD
 
       {/* <Button
-=======
-      <Button
-        color="rgb(39, 0, 93)"
-        title="Admin"
-        text="Are you an admin? Click here"
-        navigate={() => navigation.navigate("Admin")}
-      />
-      <Button
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
         color="rgb(148, 0, 255)"
         title="Patient"
         text="Are you a patient? Click here"
@@ -195,7 +154,6 @@ export default function HomeScreen({ navigation }) {
         color="rgb(0, 135, 172)"
         title="Doctor"
         text="Are you a doctor? Click here"
-<<<<<<< HEAD
         navigate={() => navigation.navigate("DoctorRegister")}
       /> */}
       <Text style={{ color: "white", fontWeight: "bold", fontSize: 20 }}>
@@ -237,13 +195,6 @@ export default function HomeScreen({ navigation }) {
           navigation.navigate("Contact Us");
         }}
       >
-=======
-        navigate={() => navigation.navigate("Doctor")}
-      />
-
-      <Text style={styles.text}>Have any query?</Text>
-      <TouchableOpacity style={styles.btn}>
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
         <Text style={styles.buttonText}>Contact Us</Text>
       </TouchableOpacity>
     </View>
@@ -253,11 +204,7 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-<<<<<<< HEAD
     backgroundColor: "rgb(95, 41, 41)",
-=======
-    backgroundColor: "#fff",
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
     justifyContent: "center",
     alignItems: "center",
   },
@@ -273,10 +220,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 10,
     marginTop: 80,
-<<<<<<< HEAD
     color: "white",
-=======
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
   },
   logoContainer: {
     flex: 0.35,
@@ -288,11 +232,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: 40,
-<<<<<<< HEAD
     color: "white",
-=======
-    color: "purple",
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
     fontWeight: "500",
     padding: 10,
   },

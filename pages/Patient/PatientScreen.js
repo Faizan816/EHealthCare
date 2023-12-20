@@ -177,17 +177,11 @@ const PatientScreen = ({ navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.licenseContainer}
-<<<<<<< HEAD
               onPress={() => navigation.navigate("PatientRegister")}
             >
               <Text style={styles.license}>
                 Don't have an account? Create now
               </Text>
-=======
-              onPress={() => alert("Read User License Agreement")}
-            >
-              <Text style={styles.license}>Read User License Agreement</Text>
->>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
             </TouchableOpacity>
           </View>
         </ScrollView>
