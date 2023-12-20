@@ -101,6 +101,7 @@ function HamburgerMenu({
           }}
         >
           <View>
+<<<<<<< HEAD
             <View style={{ alignItems: "center" }}>
               <Image
                 source={require("../../assets/PICTURE.png")}
@@ -116,6 +117,9 @@ function HamburgerMenu({
                 }}
               />
             </View>
+=======
+            <Image source={require("../../assets/PICTURE.png")} style={{width:100,height:100,borderRadius:150,marginBottom:70,marginHorizontal:25,top:40,borderColor:"black",borderWidth:2}}></Image>
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
             <FlatList
               data={MENU}
               keyExtractor={(item, index) => index}
@@ -127,7 +131,11 @@ function HamburgerMenu({
                     if (item.name === "Your Appointments")
                       navigation.navigate("Appointments");
                     if (item.name === "Contact Us")
+<<<<<<< HEAD
                       navigation.navigate("Contact Us");
+=======
+                      navigation.navigate("Contact US");
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
                     if (item.name === "Privacy Policy")
                       navigation.navigate("Privacy Policy");
                     if (item.name === "Logout") {
@@ -282,6 +290,7 @@ export default Homepage = () => {
           Quick options
         </Text>
       </View>
+<<<<<<< HEAD
       <View style={{ height: "auto" }}>
         <FlatList
           style={styles.list}
@@ -335,6 +344,54 @@ export default Homepage = () => {
             Promotions here
           </Text>
         </View>
+=======
+<View style={{height:"auto"}}>
+      <FlatList
+        style={styles.list}
+        contentContainerStyle={styles.listContainer}
+        data={options}
+        horizontal={false}
+        numColumns={2}
+        keyExtractor={(item) => {
+          return item.id;
+        }}
+        renderItem={({ item }) => {
+          return (
+            <View>
+              <TouchableOpacity
+                style={styles.card}
+                onPress={() => navigation.navigate(item.screen)}
+              >
+                <Image style={styles.cardImage} source={{ uri: item.image }} />
+
+                <Text style={styles.title}>{item.title}</Text>
+              </TouchableOpacity>
+            </View>
+          );
+        }}
+      />
+      <View
+        style={{
+          alignItems: "start",
+          marginTop: 10,
+          justifyContent: "center",
+          height: 45,
+          width: "90%",
+          backgroundColor: "green",
+          paddingHorizontal: 20,
+          borderRadius: 10,
+          marginHorizontal: 20,
+          // marginTop:"-100"
+        }}
+      >
+        <Text  style={{
+            fontSize: 19,
+            alignSelf: "center",
+            color: "white",
+            fontWeight: "bold",
+          }}>Promotions here</Text>
+      </View>
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
       </View>
       <PromotionsComponent></PromotionsComponent>
 

@@ -41,10 +41,15 @@ export default function MyAppointments({ navigation }) {
                   />
                 </View>
                 <View style={{ paddingLeft: 20, gap: 5 }}>
+<<<<<<< HEAD
                   <Text style={{ fontSize: 18 }}>{item.doctor}</Text>
                   <Text style={{ color: "blue", fontSize: 15 }}>
                     {item.patient}
                   </Text>
+=======
+                  <Text style={{ fontSize: 18 }}>Dr. Azan Abdullah</Text>
+                  <Text style={{ color: "blue", fontSize: 15 }}>Faizan</Text>
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
                   <View
                     style={{
                       flexDirection: "row",
@@ -57,10 +62,17 @@ export default function MyAppointments({ navigation }) {
                         style={{ height: 15, width: 15 }}
                         source={require("../../icons/calendar.png")}
                       />
+<<<<<<< HEAD
                       <Text style={{ paddingLeft: 5 }}>{item.time}</Text>
                     </View>
                     <View style={{ paddingLeft: 20 }}>
                       <Text>{item.date}</Text>
+=======
+                      <Text style={{ paddingLeft: 5 }}>03:43 PM</Text>
+                    </View>
+                    <View style={{ paddingLeft: 20 }}>
+                      <Text>March 02, 2022</Text>
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
                     </View>
                   </View>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -71,6 +83,7 @@ export default function MyAppointments({ navigation }) {
                     <Text style={{ paddingLeft: 6 }}>Video Call</Text>
                   </View>
                   <View style={{ alignItems: "flex-end" }}>
+<<<<<<< HEAD
                     <Text
                       style={
                         item.status === "Cancelled"
@@ -79,6 +92,10 @@ export default function MyAppointments({ navigation }) {
                       }
                     >
                       {item.status}
+=======
+                    <Text style={{ color: "red", fontStyle: "italic" }}>
+                      Cancelled
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
                     </Text>
                   </View>
                 </View>
@@ -97,27 +114,39 @@ const DATA = [
     patient: "Ali",
     time: "03:43 PM",
     date: "March 02, 2022",
+<<<<<<< HEAD
     status: "Completed",
+=======
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
   },
   {
     doctor: "Dr. Mujahid Israr",
     patient: "Ali",
     time: "12:15 PM",
     date: "June 20, 2022",
+<<<<<<< HEAD
     status: "Completed",
+=======
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
   },
   {
     doctor: "Dr. Muhammad Nabeel Akram",
     patient: "Ali",
     time: "05:02 PM",
     date: "September 13, 2022",
+<<<<<<< HEAD
     status: "Cancelled",
+=======
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
   },
   {
     doctor: "Dr. Syed Nouman Kazmi",
     patient: "Ali",
     time: "10:13 PM",
     date: "February 05, 2022",
+<<<<<<< HEAD
     status: "Completed",
+=======
+>>>>>>> 3e9eb209913b07a17a150b44dc7e2ef2f3b0b0d8
   },
 ];
