@@ -14,6 +14,8 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import PromotionsComponent from "./PromotionsComponent ";
+// import { green100 } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 
 function Search() {
   return (
@@ -94,10 +96,12 @@ function HamburgerMenu({
             width: "50%",
             height: "100%",
             backgroundColor: "white",
-            justifyContent: "center",
+            justifyContent: "start",
+            // marginTop:"50"
           }}
         >
           <View>
+            <Image source={require("../../assets/PICTURE.png")} style={{width:100,height:100,borderRadius:150,marginBottom:70,marginHorizontal:25,top:40,borderColor:"black",borderWidth:2}}></Image>
             <FlatList
               data={MENU}
               keyExtractor={(item, index) => index}
@@ -106,6 +110,12 @@ function HamburgerMenu({
                   onPress={() => {
                     if (item.name === "My Profile")
                       navigation.navigate("My Profile");
+                    if (item.name === "Your Appointments")
+                      navigation.navigate("Appointments");
+                    if (item.name === "Contact Us")
+                      navigation.navigate("Contact US");
+                    if (item.name === "Privacy Policy")
+                      navigation.navigate("Privacy Policy");
                     if (item.name === "Logout") {
                       AsyncStorage.removeItem("loggedIn");
                       navigation.navigate("Doctor");
@@ -203,9 +213,9 @@ export default Homepage = () => {
     },
     {
       id: 1,
-      title: "Appointments",
+      title: "Appointment Requests",
       image: "https://cdn-icons-png.flaticon.com/512/10620/10620231.png",
-      screen: "Appointments",
+      screen: "Appointment Request",
     },
     {
       id: 2,
@@ -236,20 +246,29 @@ export default Homepage = () => {
       <Search />
       <View
         style={{
-          alignItems: "start",
+          // alignItems: "start",
           marginTop: 10,
           justifyContent: "center",
           height: 40,
           width: "90%",
-          backgroundColor: "lightblue",
+          backgroundColor: "dodgerblue",
           paddingHorizontal: 20,
-          borderRadius: 10,
+          borderRadius: 15,
           marginHorizontal: 20,
         }}
       >
-        <Text style={styles.title}>Quick options</Text>
+        <Text
+          style={{
+            fontSize: 19,
+            alignSelf: "center",
+            color: "white",
+            fontWeight: "bold",
+          }}
+        >
+          Quick options
+        </Text>
       </View>
-
+<View style={{height:"auto"}}>
       <FlatList
         style={styles.list}
         contentContainerStyle={styles.listContainer}
@@ -274,6 +293,29 @@ export default Homepage = () => {
           );
         }}
       />
+      <View
+        style={{
+          alignItems: "start",
+          marginTop: 10,
+          justifyContent: "center",
+          height: 45,
+          width: "90%",
+          backgroundColor: "green",
+          paddingHorizontal: 20,
+          borderRadius: 10,
+          marginHorizontal: 20,
+          // marginTop:"-100"
+        }}
+      >
+        <Text  style={{
+            fontSize: 19,
+            alignSelf: "center",
+            color: "white",
+            fontWeight: "bold",
+          }}>Promotions here</Text>
+      </View>
+      </View>
+      <PromotionsComponent></PromotionsComponent>
 
       {/* {isMenuOpen && (
         <View style={styles.menu}>
@@ -349,7 +391,10 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingHorizontal: 5,
-    backgroundColor: "#f6f6f6",
+    // backgroundColor: "#f6f6f6",
+    // backgroundColor: "grey",
+    // height:"200"
+    // flex:1
   },
   listContainer: {
     alignItems: "center",
@@ -363,7 +408,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: "center",
     justifyContent: "center",
-    gap: 20,
+    // gap: 20,
     padding: 20,
   },
   cardImage: {
@@ -377,9 +422,9 @@ const styles = StyleSheet.create({
     color: "#696969",
     fontWeight: "bold",
   },
-  mainContent: {
-    paddingBottom: 65, // Adjust the paddingBottom to accommodate the bottom navigation
-  },
+  // mainContent: {
+  //   paddingBottom: 65, // Adjust the paddingBottom to accommodate the bottom navigation
+  // },
   mainContainer: {
     flex: 0.25,
     paddingLeft: 20,
@@ -421,16 +466,8 @@ const MENU = [
     img: require("../../icons/my-profile.png"),
   },
   {
-    name: "My Doctors",
-    img: require("../../icons/my-doctors.png"),
-  },
-  {
     name: "Privacy Policy",
     img: require("../../icons/privacy-policy.png"),
-  },
-  {
-    name: "Change Location",
-    img: require("../../icons/location.png"),
   },
   {
     name: "Your Appointments",

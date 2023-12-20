@@ -4,8 +4,15 @@ import { useState } from "react";
 import Input from "../../components/Input";
 import DropDown from "../../components/DropDown";
 import DocumentUpload from "../../components/DocumentUpload";
-
-export default function DoctorRegisterScreen() {
+import { TouchableOpacity } from "react-native";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInAnonymously,
+  onAuthStateChanged,
+} from "firebase/auth";
+import {app, auth } from "./../firebase";
+export default function DoctorRegisterScreen({navigation}) {
   const genders = ["male", "female"];
   const countries = [
     "Afghanistan",
@@ -219,8 +226,43 @@ export default function DoctorRegisterScreen() {
   const [speciality, setSpeciality] = useState("");
   const [selectedDocument, setSelectedDocument] = useState(null);
 
+  const handleSignup = async () => {
+    // const db = getDatabase(app);
+    console.log("LOGGED");
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Sign Up
+        // console.log("Succesfull");
+        const user = userCredential.user;
+        console.log("user data,", user);
+
+        // push(ref(db, "/userInformation"), {
+        //   userId: userCredential.user.uid,
+        //   name: name,
+        //   phone:phone,
+        //   email: text,
+        //   password: pass,
+        // });
+
+        alert("Account Created successfully");
+        navigation.navigate("Doctor");
+        // write code to save your data in firestore
+        // FirebaseError.firestore.write(user.uid,user.uid)
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Error Code == ", errorCode);
+        console.log("Error Message == ", errorMessage);
+        alert(errorMessage);
+      });
+  };
+
+
   return (
     <View style={styles.layoutContainer}>
+      
       <ScrollView
         vertical
         showsVerticalScrollIndicator={false}
@@ -240,22 +282,23 @@ export default function DoctorRegisterScreen() {
           text="Doctor Panel"
           color="green"
         />
+        
         <View style={{ paddingTop: 40, paddingBottom: 100 }}>
           <Input
             label="Username:"
             value={username}
             onChange={(value) => setUsername(value)}
           />
+            <Input
+              label="Email:"
+              value={email}
+              onChange={(value) => setEmail(value)}
+            />
           <Input
             label="Password:"
             hidden={true}
             value={password}
             onChange={(value) => setPassword(value)}
-          />
-          <Input
-            label="Email:"
-            value={email}
-            onChange={(value) => setEmail(value)}
           />
           <Input
             label="Phone No#:"
@@ -269,7 +312,7 @@ export default function DoctorRegisterScreen() {
             selectedValue={gender}
             handleChange={(value) => setGender(value)}
           />
-          <Input
+          {/* <Input
             label="Qualification:"
             value={qualification}
             onChange={(value) => setQualification(value)}
@@ -289,13 +332,42 @@ export default function DoctorRegisterScreen() {
             label="Current Occupation:"
             value={currentOccupation}
             onChange={(value) => setCurrentOccupation(value)}
-          />
+          /> */}
           <Input
             label="Speciality:"
             value={speciality}
             onChange={(value) => setSpeciality(value)}
           />
-          <DocumentUpload label="Certificate:" />
+          {/* <DocumentUpload label="Certificate:" /> */}
+
+          <TouchableOpacity
+              onPress={handleSignup}
+              style={{
+                backgroundColor: "rgb(32, 150, 255)",
+                alignItems: "center",
+                padding: 12,
+                borderRadius: 12,
+                opacity: 0.8,
+                marginTop:50
+              }}
+            >
+              <Text style={{color:"white",fontSize:20,fontWeight:"bold"}}>Sign UP</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Doctor")}
+              style={{
+                backgroundColor: "rgb(61, 130, 255)",
+                alignItems: "center",
+                padding: 12,
+                borderRadius: 12,
+                opacity: 0.8,
+                marginTop:25
+              }}
+            >
+              <Text style={{color:"white",fontSize:20,fontWeight:"bold"}}>Login</Text>
+            </TouchableOpacity>
+              
         </View>
       </ScrollView>
     </View>

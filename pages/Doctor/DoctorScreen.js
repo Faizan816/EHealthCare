@@ -87,6 +87,14 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { auth } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInAnonymously,
+  onAuthStateChanged,
+} from "firebase/auth";
+
 
 const doctors = [
   {
@@ -122,20 +130,39 @@ const DoctorScreen = ({ navigation }) => {
     AsyncStorage.setItem("screen", "Doctor");
   }, []);
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleLoginClick() {
-    let isSuccessful = false;
-    doctors.forEach((doctor) => {
-      if (doctor.username === username && doctor.password === password) {
-        alert("Login Successful");
-        isSuccessful = true;
-        navigation.navigate("DoctorHomePage");
-        AsyncStorage.setItem("loggedIn", "true");
-      }
+   const handleLoginClick=async () =>{
+    // let isSuccessful = false;
+    // doctors.forEach((doctor) => {
+    //   if (doctor.username === username && doctor.password === password) {
+    //     alert("Login Successful");
+    //     isSuccessful = true;
+    //     navigation.navigate("Appointment Request");
+    //     AsyncStorage.setItem("loggedIn", "true");
+    //   }
+    // });
+    // if (!isSuccessful) alert("Login Failed! Enter correct credentials.");
+    await signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // console.log("user data,", user);
+      console.log("user data,", user);
+      // ...
+      alert("Login successful");
+      navigation.navigate("DoctorHomePage");
+
+      // AsyncStorage.setItem("myuser", JSON.stringify(user));
+      // navigation.navigate('HomeScreen');
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.log("Error,", errorMessage);
+      alert(errorMessage);
+      // ..
     });
-    if (!isSuccessful) alert("Login Failed! Enter correct credentials.");
   }
 
   return (
@@ -151,9 +178,9 @@ const DoctorScreen = ({ navigation }) => {
             {/* <Text style={{fontSize:30,color:"rgb(54, 116, 137)",marginBottom:20,fontWeight:"bold"}}>Create Account</Text> */}
             <TextInput
               style={styles.input}
-              placeholder="Username"
-              value={username}
-              onChangeText={setUsername}
+              placeholder="email"
+              value={email}
+              onChangeText={setEmail}
               autoCapitalize="none"
             />
             <TextInput
